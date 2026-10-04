@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DMHSF - Dolphin Model High School Friends</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#050505;
+    color:white;
+}
+
+
+/* =========================
+   RGB ANIMATION
+========================= */
+
+@keyframes rgbBorder{
+    0%{
+        border-color:#ff0000;
+        box-shadow:0 0 12px #ff0000;
+    }
+
+    25%{
+        border-color:#00ff00;
+        box-shadow:0 0 12px #00ff00;
+    }
+
+    50%{
+        border-color:#00ffff;
+        box-shadow:0 0 12px #00ffff;
+    }
+
+    75%{
+        border-color:#0000ff;
+        box-shadow:0 0 12px #0000ff;
+    }
+
+    100%{
+        border-color:#ff00ff;
+        box-shadow:0 0 12px #ff00ff;
+    }
+}
+
+
+@keyframes rgbText{
+    0%{
+        color:#ff0000;
+    }
+
+    20%{
+        color:#ffff00;
+    }
+
+    40%{
+        color:#00ff00;
+    }
+
+    60%{
+        color:#00ffff;
+    }
+
+    80%{
+        color:#0080ff;
+    }
+
+    100%{
+        color:#ff00ff;
+    }
+}
+
+
+@keyframes rgbBackground{
+    0%{
+        background:linear-gradient(135deg,#ff0000,#550000);
+    }
+
+    20%{
+        background:linear-gradient(135deg,#00ff00,#003300);
+    }
+
+    40%{
+        background:linear-gradient(135deg,#00ffff,#003333);
+    }
+
+    60%{
+        background:linear-gradient(135deg,#0000ff,#000033);
+    }
+
+    80%{
+        background:linear-gradient(135deg,#ff00ff,#330033);
+    }
+
+    100%{
+        background:linear-gradient(135deg,#ff0000,#550000);
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    text-align:center;
+    padding:35px 15px;
+
+    border-bottom:4px solid #ff0000;
+
+    animation:
+        rgbBorder 4s linear infinite,
+        rgbBackground 8s linear infinite;
+}
+
+header h1{
+    font-size:34px;
+    margin-bottom:8px;
+
+    animation:rgbText 4s linear infinite;
+}
+
+header h2{
+    font-size:18px;
+    margin-bottom:12px;
+
+    animation:rgbText 4s linear infinite;
+}
+
+.tagline{
+    font-size:16px;
+    font-style:italic;
+    margin-bottom:12px;
+
+    animation:rgbText 4s linear infinite;
+}
+
+.welcome{
+    font-size:16px;
+    font-weight:bold;
+
+    animation:rgbText 4s linear infinite;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.services{
+    max-width:850px;
+    margin:auto;
+    padding:25px 20px;
+}
+
+.services-title{
+    text-align:center;
+    margin-bottom:20px;
+
+    animation:rgbText 4s linear infinite;
+}
+
+
+/* =========================
+   SERVICE BOX
+========================= */
+
+.service-box{
+    background:#111;
+    border:3px solid #ff0000;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+
+    margin-bottom:15px;
+
+    animation:rgbBorder 3s linear infinite;
+    transition:0.3s;
+}
+
+.service-box:hover{
+    transform:scale(1.03);
+    background:#222;
+}
+
+.service-box{
+    animation:
+        rgbBorder 3s linear infinite,
+        rgbText 4s linear infinite;
+}
+
+
+/* =========================
+   HIDDEN SECTION
+========================= */
+
+.hidden-section{
+    display:none;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:0 20px 20px;
+}
+
+.title{
+    text-align:center;
+    margin:10px 0 20px;
+
+    animation:rgbText 4s linear infinite;
+}
+
+
+/* =========================
+   MEMBER CARD
+========================= */
+
+.member{
+    background:#101010;
+    margin:18px 0;
+    padding:20px;
+
+    border:3px solid #ff0000;
+    border-radius:15px;
+
+    animation:rgbBorder 3s linear infinite;
+}
+
+.member h2{
+    margin-bottom:15px;
+
+    animation:rgbText 4s linear infinite;
+}
+
+.member p{
+    margin:9px 0;
+    font-size:16px;
+
+    animation:rgbText 5s linear infinite;
+}
+
+
+/* =========================
+   INFO CARD
+========================= */
+
+.info-card{
+    background:#101010;
+    padding:22px;
+
+    border:3px solid #ff0000;
+    border-radius:15px;
+
+    animation:rgbBorder 3s linear infinite;
+}
+
+.info-card p{
+    margin:12px 0;
+    font-size:17px;
+    line-height:1.6;
+
+    animation:rgbText 5s linear infinite;
+}
+
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
+.whatsapp-button{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+
+    background:#111;
+
+    color:white;
+
+    padding:13px;
+    border-radius:10px;
+
+    font-weight:bold;
+    margin-top:18px;
+
+    border:3px solid #ff0000;
+
+    animation:rgbBorder 3s linear infinite;
+}
+
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice-box{
+    background:#101010;
+    padding:20px;
+
+    border:3px solid #ff0000;
+    border-radius:15px;
+
+    animation:rgbBorder 3s linear infinite;
+}
+
+.notice-box h3{
+    animation:rgbText 4s linear infinite;
+}
+
+.notice-box input,
+.notice-box textarea{
+
+    width:100%;
+
+    padding:12px;
+    margin-top:10px;
+
+    background:#050505;
+    color:white;
+
+    border:2px solid #ff0000;
+    border-radius:8px;
+
+    font-size:16px;
+
+    animation:rgbBorder 3s linear infinite;
+}
+
+.notice-box textarea{
+    height:150px;
+    resize:vertical;
+}
+
+
+.notice-button{
+
+    width:100%;
+
+    margin-top:12px;
+
+    padding:12px;
+
+    border:3px solid #ff0000;
+    border-radius:8px;
+
+    background:#111;
+    color:white;
+
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    animation:
+        rgbBorder 3s linear infinite,
+        rgbText 4s linear infinite;
+}
+
+
+.saved-notice{
+
+    margin-top:20px;
+    padding:15px;
+
+    background:#080808;
+
+    border:3px solid #ff0000;
+    border-radius:10px;
+
+    white-space:pre-wrap;
+
+    animation:rgbBorder 3s linear infinite;
+}
+
+.saved-notice b{
+    animation:rgbText 4s linear infinite;
+}
+
+.notice-date{
+    font-size:13px;
+    margin-bottom:8px;
+
+    animation:rgbText 5s linear infinite;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    margin-top:30px;
+
+    background:#050505;
+
+    text-align:center;
+
+    padding:20px;
+
+    border-top:3px solid #ff0000;
+
+    animation:rgbBorder 3s linear infinite;
+}
+
+footer p{
+
+    margin:5px;
+
+    animation:rgbText 4s linear infinite;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<h1>DMHSF</h1>
+
+<h2>DOLPHIN MODEL HIGH SCHOOL FRIENDS</h2>
+
+<div class="tagline">
+HONESTY IS THE BEST POLICY
+</div>
+
+<div class="welcome">
+এই ওয়েবসাইটে প্রবেশ করার জন্য ধন্যবাদ
+</div>
+
+</header>
+
+
+
+<!-- SERVICES -->
+
+<section class="services">
+
+<h2 class="services-title">
+আমাদের সেবা সমূহ
+</h2>
+
+
+<div class="service-box" onclick="showMembers()">
+সদস্যদের তথ্য তালিকা
+</div>
+
+
+<div class="service-box" onclick="showInfo()">
+প্রয়োজনীয় তথ্য
+</div>
+
+
+<div class="service-box" onclick="showNotice()">
+📢 Notice
+</div>
+
+</section>
+
+
+
+<!-- MEMBERS -->
+
+<section id="members" class="hidden-section">
+
+<div class="container">
+
+<h1 class="title">
+সদস্যদের তথ্য
+</h1>
+
+
+<div class="member">
+
+<h2>১. তাহসিন হক খান</h2>
+
+<p><b>পদবি:</b> সভাপতি</p>
+
+<p><b>Email:</b> tahsin01072015@gmail.com</p>
+
+<p><b>Mobile:</b> 01752608377</p>
+
+<p><b>ঠিকানা:</b> ৭২/এ, হরিরামপুর, মিরপুর, ঢাকা</p>
+
+</div>
+
+
+<div class="member">
+
+<h2>২. মেসবাহ বিন ইয়াসিন</h2>
+
+<p><b>পদবি:</b> সহ-সভাপতি</p>
+
+<p><b>Email:</b></p>
+
+<p><b>Mobile:</b> 880 1912-0735</p>
+
+<p><b>ঠিকানা:</b> ভাঙ্গাওয়াল</p>
+
+</div>
+
+
+<div class="member">
+
+<h2>৩. তাকবির হোসেন</h2>
+
+<p><b>পদবি:</b> সদস্য</p>
+
+<p><b>Email:</b></p>
+
+<p><b>Mobile:</b> +880 1793-264226</p>
+
+<p><b>ঠিকানা:</b> গোলাটেক</p>
+
+</div>
+
+
+<div class="member">
+
+<h2>৪. জুবায়ের ইব্রাহিম আয়ান</h2>
+
+<p><b>পদবি:</b> সদস্য</p>
+
+<p><b>Email:</b></p>
+
+<p><b>Mobile:</b> +880 1626-162895</p>
+
+<p><b>ঠিকানা:</b></p>
+
+</div>
+
+
+<div class="member">
+
+<h2>৫. আবির হোসেন</h2>
+
+<p><b>পদবি:</b> সদস্য</p>
+
+<p><b>Email:</b></p>
+
+<p><b>Mobile:</b> +880 1928-906063</p>
+
+<p><b>ঠিকানা:</b> গোলাটেক</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- IMPORTANT INFORMATION -->
+
+<section id="importantInfo" class="hidden-section">
+
+<div class="container">
+
+<h1 class="title">
+প্রয়োজনীয় তথ্য
+</h1>
+
+
+<div class="info-card">
+
+<p>
+<b>১. WhatsApp:</b>
+DMHSF-এর সাথে যোগাযোগের জন্য WhatsApp ব্যবহার করা যাবে।
+</p>
+
+<p>
+<b>২. বয়স:</b>
+সদস্যদের বয়স ১০-১৪ বছরের মধ্যে হতে হবে।
+</p>
+
+<p>
+<b>৩. যোগাযোগ:</b>
+যোগাযোগ করতে নিচের WhatsApp বাটনে ক্লিক করুন।
+</p>
+
+
+<a
+href="https://wa.me/8801752608377"
+target="_blank"
+class="whatsapp-button">
+
+💬 WhatsApp-এ মেসেজ করুন
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- NOTICE -->
+
+<section id="noticeSection" class="hidden-section">
+
+<div class="container">
+
+<h1 class="title">
+📢 Notice
+</h1>
+
+
+<div class="notice-box">
+
+<h3>Notice লিখতে PIN দিন</h3>
+
+<input
+type="password"
+id="pin"
+placeholder="PIN নম্বর লিখুন">
+
+
+<button
+class="notice-button"
+onclick="checkPin()">
+
+প্রবেশ করুন
+
+</button>
+
+
+<div id="noticeWriter" style="display:none;">
+
+<br>
+
+<h3>নতুন Notice লিখুন</h3>
+
+<textarea
+id="noticeText"
+placeholder="এখানে Notice লিখুন..."></textarea>
+
+
+<button
+class="notice-button"
+onclick="saveNotice()">
+
+📤 Notice Save করুন
+
+</button>
+
+</div>
+
+
+<div id="savedNotice"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 DMHSF</p>
+
+<p>Dolphin Model High School Friends</p>
+
+</footer>
+
+
+
+<script>
+
+
+/* MEMBERS */
+
+function showMembers(){
+
+    var members =
+    document.getElementById("members");
+
+    if(members.style.display === "block"){
+
+        members.style.display = "none";
+
+    }else{
+
+        members.style.display = "block";
+
+        members.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* IMPORTANT INFO */
+
+function showInfo(){
+
+    var info =
+    document.getElementById("importantInfo");
+
+    if(info.style.display === "block"){
+
+        info.style.display = "none";
+
+    }else{
+
+        info.style.display = "block";
+
+        info.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* NOTICE */
+
+function showNotice(){
+
+    var notice =
+    document.getElementById("noticeSection");
+
+    if(notice.style.display === "block"){
+
+        notice.style.display = "none";
+
+    }else{
+
+        notice.style.display = "block";
+
+        loadNotice();
+
+        notice.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* PIN */
+
+function checkPin(){
+
+    var pin =
+    document.getElementById("pin").value;
+
+    if(pin === "19770"){
+
+        document.getElementById(
+            "noticeWriter"
+        ).style.display = "block";
+
+        alert(
+            "PIN সঠিক। এখন Notice লিখতে পারবে।"
+        );
+
+    }else{
+
+        alert("ভুল PIN!");
+
+    }
+
+}
+
+
+/* SAVE NOTICE */
+
+function saveNotice(){
+
+    var notice =
+    document.getElementById("noticeText").value;
+
+    if(notice.trim() === ""){
+
+        alert("আগে Notice লিখুন।");
+
+        return;
+
+    }
+
+    localStorage.setItem(
+        "dmhsfNotice",
+        notice
+    );
+
+    localStorage.setItem(
+        "dmhsfNoticeDate",
+        new Date().toLocaleString("bn-BD")
+    );
+
+    alert(
+        "Notice সফলভাবে Save হয়েছে!"
+    );
+
+    loadNotice();
+
+}
+
+
+/* LOAD NOTICE */
+
+function loadNotice(){
+
+    var notice =
+    localStorage.getItem("dmhsfNotice");
+
+    var date =
+    localStorage.getItem("dmhsfNoticeDate");
+
+    var box =
+    document.getElementById("savedNotice");
+
+    if(notice){
+
+        box.innerHTML =
+        '<div class="saved-notice">' +
+        '<div class="notice-date">' +
+        'প্রকাশের সময়: ' + date +
+        '</div>' +
+        '<b>📢 Notice:</b><br><br>' +
+        escapeHTML(notice) +
+        '</div>';
+
+    }else{
+
+        box.innerHTML =
+        '<div class="saved-notice">' +
+        'এখনও কোনো Notice প্রকাশ করা হয়নি।' +
+        '</div>';
+
+    }
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+    var div =
+    document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
